@@ -1,5 +1,5 @@
 # static-file-server
-A simple static file server that can be configured to return a specific file from provided route.
+A simple static file server using golang's built-int `http` package.
 Built so that I could primarily use golang as my toolchain without pulling in other language or OS dependencies.
 
 ## Warning
