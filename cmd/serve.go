@@ -50,10 +50,18 @@ var serveCmd = &cobra.Command{
 				return
 			}
 		}
+
+		fileHandler := http.FileServer(http.Dir(rootPath))
+
+		rootHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+			fileHandler.ServeHTTP(w, r)
+		})
+
 		logrus.WithField("port", port).Info("Starting file server")
 		http.ListenAndServe(
 			fmt.Sprintf(":%d", port),
-			http.FileServer(http.Dir(rootPath)),
+			rootHandler,
 		)
 	},
 }
