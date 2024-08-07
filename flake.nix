@@ -2,7 +2,7 @@
   description = "A simple static file server";
 
   # Nixpkgs / NixOS version to use.
-  inputs.nixpkgs.url = "nixpkgs/nixos-21.11";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }:
     let
@@ -48,7 +48,7 @@
             # remeber to bump this hash when your dependencies change.
             #vendorSha256 = pkgs.lib.fakeSha256;
 
-            vendorSha256 = "sha256-KbGlJd2938Kma7fm8kbpS0yxDs0U2xPi4I+WUTwV+Ns=";
+            vendorHash = "sha256-KbGlJd2938Kma7fm8kbpS0yxDs0U2xPi4I+WUTwV+Ns=";
           };
         });
 
